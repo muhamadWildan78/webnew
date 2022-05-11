@@ -1,0 +1,37 @@
+<div class="auth-wrapper">
+  <div class="auth-content">
+    <div class="auth-bg">
+      <span class="r"></span>
+      <span class="r s"></span>
+      <span class="r s"></span>
+      <span class="r"></span>
+    </div>
+    <div class="card">
+      
+      <div class="card-body text-center">
+        <div class="mb-4">
+          <img style="width: 20%;" src="/assets/logos/tem.png" alt="">
+        </div>
+        <form [formGroup]="form">
+          <div class="input-group mb-3">
+            <input type="email" class="form-control" formControlName="username" placeholder="Username">
+          </div>
+          <div class="input-group mb-4">
+            <input type="password" class="form-control" formControlName="password" placeholder="Password">
+          </div>
+        </form>
+        <div class="form-group text-left">
+          <div class="checkbox checkbox-fill d-inline">
+            <input type="checkbox" name="checkbox-fill-1" id="checkbox-fill-a1">
+            <label for="checkbox-fill-a1" class="cr"> Save Details</label>
+          </div>
+        </div>
+        <button type="submit" class="btn btn-dark mb-4" (click)="onLogin()">
+        <span style="display: inline;" id="loader-text">Login</span>
+        <span style="display: none;" id="login-loader"><i class="fa fa-spinner spin" aria-hidden="true"></i></span>
+        </button>
+        <p class="mb-0 text-muted">Don’t have an account? <a [routerLink]="['/auth/signup']">Sign up</a></p>
+      </div>
+    </div>
+  </div>
+</div>

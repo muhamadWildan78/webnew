@@ -1,0 +1,133 @@
+<div class="auth-wrapper" *ngIf="formNumber == 1">
+  <div class="auth-content-2">
+    <div class="auth-bg">
+      <span class="r"></span>
+      <span class="r s"></span>
+      <span class="r s"></span>
+      <span class="r"></span>
+    </div>
+    <div class="card">
+      <form [formGroup]="form">
+      <div class="card-body text-center">
+        <div class="mb-4">
+          <i class="feather icon-user-plus auth-icon"></i>
+        </div>
+        <h3 class="mb-4">Sign up</h3>
+        <h5 class="mb-4">Data Perusahaan</h5>
+        <div class="input-group mb-3">
+          <input type="text" class="form-control" formControlName="firstName" placeholder="Nomor Rekening">
+          &nbsp;&nbsp;
+          <input type="text" class="form-control" formControlName="lastName" placeholder="Corporate Id">
+        </div>
+        <div class="input-group mb-3">
+          <input type="text" class="form-control" formControlName="userName" placeholder="Nama Perusahaan">
+        </div>
+        <div class="input-group mb-3">
+          <input type="text" class="form-control" formControlName="userName" placeholder="Nama Dagang / Merek">
+        </div>
+        <div class="input-group mb-3">
+          <input type="text" class="form-control" formControlName="userName" placeholder="Jenis Usaha">
+        </div>
+        <div class="input-group mb-3">
+          <input type="text" class="form-control" formControlName="userName" placeholder="Alamat Perusahaan">
+        </div>
+        <div class="text-left mb-3">
+          <input type="email" class="form-control" formControlName="email" placeholder="Email">
+          <span *ngIf="!form.get('email').valid && form.get('email').touched && form.value.email != null" class="help-block text-danger">
+            Email tidak Valid
+          </span>
+        </div>
+        <div class="input-group mb-3">
+          <input type="text" class="form-control" formControlName="userName" placeholder="Website">
+        </div>
+        <div class="input-group mb-3">
+          <input type="text" class="form-control" formControlName="userName" placeholder="Nomor Pokok Wajib Pajak (NPWP)">
+        </div>
+        <div class="input-group mb-3">
+          <input type="text" class="form-control" formControlName="userName" placeholder="Nomor Surat Izin Usaha Perdagangan(SIUP)">
+        </div>
+        <!-- <div class="input-group mb-3">
+            <input [type]="type" formControlName="userPassword" class="form-control" id="validationCustomUsername" onpaste="return false;" placeholder="Password" aria-describedby="inputGroupPrepend">
+            <div *ngIf="seePassword == false" class="input-group-prepend" style="cursor: pointer;">
+              <span class="input-group-text" id="inputGroupPrepend" (click)="showPassword()"><i class="fa fa-eye"></i></span>
+            </div>
+            <div *ngIf="seePassword == true" class="input-group-prepend" style="cursor: pointer;">
+              <span class="input-group-text" id="inputGroupPrepend" (click)="hidePassword()"><i class="fa fa-eye-slash"></i></span>
+          </div>
+        </div>
+        <div class="text-left mb-3">
+            <input *ngIf="(form.value.retypePassword != form.value.userPassword && !form.get('retypePassword').touched) || form.value.retypePassword == form.value.userPassword" [value]="form.value.retypePassword" class="form-control" id="confirmPassword"  formControlName="retypePassword"   onpaste="return false;" type="password" placeholder="Retype Password">
+            <input *ngIf="form.value.retypePassword != form.value.userPassword && form.get('retypePassword').touched" [value]="form.value.retypePassword" class="form-control" id="confirmPassword"  formControlName="retypePassword" style="border: 1px solid red;"  onpaste="return false;" type="password" placeholder="Retype Password">
+            <span class="text-danger" *ngIf="form.value.retypePassword != form.value.userPassword && form.get('retypePassword').touched">Password doesm't match</span> 
+            <span class="text-success" *ngIf="form.value.retypePassword == form.value.userPassword && form.get('retypePassword').touched && form.value.userPassword != null">Password confirmed!</span> 
+        </div>
+        <div class="input-group mb-3">
+          <div class="input-group-prepend">
+            <span class="input-group-text" id="inputGroupPrepend" >{{formatNumber}}</span>
+          </div>
+          <input mask=" 000-0000-00000" formControlName="phoneNumber" class="form-control" id="exampleFormControlInput1" placeholder="Phone Number" [validation]="false">
+        </div>
+        <div class="input-group mb-3">
+          <div class="input-group-prepend">
+            <label class="input-group-text" for="inputGroupSelect01">Gender</label>
+          </div>
+          <select class="custom-select" formControlName="gender" id="inputGroupSelect01">
+            <option value="Male" >Male</option>
+            <option value="Female" >Female</option>
+          </select>
+          &nbsp;&nbsp;
+          <div class="input-group-prepend">
+            <label class="input-group-text" for="inputGroupSelect01">Birth Date</label>
+          </div>
+          <input class="form-control"  type="date" formControlName="birthDate">
+        </div> -->
+        <div class="form-group text-left">
+          <div class="checkbox checkbox-fill d-inline">
+            <input type="checkbox" formControlName="accept" name="checkbox-fill-1" id="checkbox-fill-a1">
+            <label for="checkbox-fill-a1" class="cr"> Accept terms and regulation</label>
+          </div>
+        </div>
+        <button class="btn btn-primary shadow-2 mb-4" (click)="nextForm()" [disabled]="this.form.value.accept == false || this.form.value.accept == null">Next</button>
+        <p class="mb-0 text-muted">Already have an account? <a [routerLink]="['/auth/signin']"> Log in</a></p>
+      </div>
+      </form>
+    </div>
+  </div>
+</div>
+<div class="auth-wrapper" *ngIf="formNumber == 2">
+  <div class="auth-content">
+    <div class="auth-bg">
+      <span class="r"></span>
+      <span class="r s"></span>
+      <span class="r s"></span>
+      <span class="r"></span>
+    </div>
+    <div class="card">
+      <div class="card-body text-center">
+        <div class="mb-4">
+          <i class="feather icon-user-plus auth-icon"></i>
+        </div>
+        <h3 class="mb-4">Verificate Your Account</h3>
+          <form [formGroup]="acceptform">
+            <div class="text-center mb-3">
+              <p class="text-dark font-weight-bold">{{randomText}}</p>
+            </div>
+            <div class="input-group mb-3">
+              <input type="text" class="form-control" formControlName="verificateCode" placeholder="Follow the random word">
+            </div>
+          </form>
+          <div class="row text-center">
+            <div class="col">
+              <button class="btn btn-primary shadow-2 mb-4" (click)="prevForm()">Back</button>
+            </div>
+            <div class="col">
+              <button class="btn btn-primary shadow-2 mb-4" [disabled]="this.acceptform.value.verificateCode != randomText" (click)="submit()">
+                <span style="display: inline;" id="loader-text">Sign Up</span>
+                <span style="display: none;" id="login-loader"><i class="fa fa-spinner spin" aria-hidden="true"></i></span>
+              </button>
+            </div>
+          </div>
+        </div>
+    </div>
+  </div>
+</div>
